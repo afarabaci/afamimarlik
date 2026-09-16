@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import localFont from "next/font/local";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
 import PageNavigation from "./components/PageNavigation";
 
 const headingFont = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-heading" });
-const bodyFont = Manrope({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-body" });
+const bodyFont = localFont({ src: "./fonts/FogtwoNo5.otf", variable: "--font-body", display: "swap" });
 
 export const metadata: Metadata = {
   title: "AFA Mimarlık",
@@ -36,13 +37,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </header>
 
-          <div className="global-eyebrow">MİMARLIK · TASARIM · MEKAN</div>
+          <div className="global-eyebrow">PROJE · TASARIM · UYGULAMA</div>
 
           <main>{children}</main>
 
           <PageNavigation />
           <div className="site-copyright">
-            AFA Mimarlık © 2026
+            AFA Mimarlık © 2026 | Tüm hakları saklıdır.
           </div>
         </div>
       </body>

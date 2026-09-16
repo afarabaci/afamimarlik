@@ -1,7 +1,9 @@
-export default function Iletisim() {
-  return (
+export default function Iletisim(){
+  return(
     <section className="page-section contact-page">
-      <h1>İletişim</h1>
+      <div className="page-heading">
+        <h1>İletişim</h1>
+      </div>
 
       <div className="contact-grid">
         <div className="contact-card">
@@ -11,7 +13,9 @@ export default function Iletisim() {
 
         <div className="contact-card">
           <span>E-Posta</span>
-          <a href="mailto:ahmetfarukarabaci@gmail.com">ahmetfarukarabaci@gmail.com</a>
+          <a href="mailto:ahmetfarukarabaci@gmail.com">
+            ahmetfarukarabaci@gmail.com
+          </a>
         </div>
 
         <div className="contact-card">
