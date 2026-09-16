@@ -4,8 +4,6 @@ export default function Home() {
   return (
     <section className="home-hero">
       <div className="hero-copy">
-        <div className="hero-eyebrow">MİMARLIK · TASARIM · MEKAN</div>
-
         <div className="hero-main-copy">
           <h1>AFA Mimarlık</h1>
           <div className="hero-line" />

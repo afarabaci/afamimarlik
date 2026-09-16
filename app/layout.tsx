@@ -34,6 +34,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <span className="lang-switch">TR/EN</span>
             </div>
           </header>
+
+          <div className="global-eyebrow">MİMARLIK · TASARIM · MEKAN</div>
+          
           <main>{children}</main>
         </div>
       </body>

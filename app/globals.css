@@ -242,10 +242,117 @@ a {
   padding-top: 28px;
 }
 
-.hero-eyebrow {
-  font-size: 12px;
+html,
+body {
+  height: 100%;
+  overflow: hidden
+}
+
+.site-shell {
+  height: 100vh;
+  overflow: hidden
+}
+
+.site-header {
+  width: min(1480px, 90%);
+  height: 110px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+
+.global-eyebrow {
+  width: min(1480px, 90%);
+  height: 58px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
   letter-spacing: .38em;
   color: var(--muted);
+}
+
+main {
+  height: calc(100vh - 168px);
+}
+
+.home-hero {
+  position: relative;
+  width: min(1480px, 90%);
+  height: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr .8fr;
+  align-items: center;
+  gap: 80px;
+  padding: 0;
+}
+
+.hero-copy {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.hero-main-copy {
+  margin: 0;
+  transform: translateY(-15px);
+}
+
+.hero-main-copy h1 {
+  font-family: var(--font-heading), serif;
+  font-size: clamp(52px, 4vw, 72px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.025em;
+}
+
+.hero-art {
+  position: relative;
+  width: 470px;
+  height: 560px;
+  justify-self: end;
+  margin-right: 60px;
+}
+
+.hero-image {
+  position: relative;
+  display: block;
+  width: 470px;
+  height: 560px;
+  object-fit: cover;
+}
+
+.hero-backplate {
+  position: absolute;
+  left: -80px;
+  top: 55px;
+  width: 150px;
+  height: 390px;
+  background: #e9e4db;
+}
+
+.hero-circle {
+  position: absolute;
+  right: -85px;
+  top: 45px;
+  width: 165px;
+  height: 165px;
+}
+
+.hero-note {
+  position: absolute;
+  left: -145px;
+  bottom: 15px;
+}
+
+.home-copyright {
+  position: absolute;
+  left: 0;
+  bottom: 20px;
 }
 
 .hero-main-copy {
@@ -447,7 +554,11 @@ a {
 }
 
 .page-section {
-  padding: 64px 0 88px
+  width: min(1480px, 90%);
+  height: 100%;
+  margin: 0 auto;
+  padding: 45px 0;
+  overflow: hidden;
 }
 
 .content-block {
