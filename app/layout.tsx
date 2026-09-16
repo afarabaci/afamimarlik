@@ -36,8 +36,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </header>
 
           <div className="global-eyebrow">MİMARLIK · TASARIM · MEKAN</div>
-          
+
           <main>{children}</main>
+
+          <div className="site-copyright">
+            AFA Mimarlık © 2026
+          </div>
         </div>
       </body>
     </html>

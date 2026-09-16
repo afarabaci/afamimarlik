@@ -1,7 +1,6 @@
 export default function Hakkimizda() {
   return (
     <section className="page-section">
-      <div className="section-topline">KURUMSAL</div>
       <h1>Hakkımızda</h1>
       <div className="content-block">
         <p>
