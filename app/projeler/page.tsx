@@ -3,7 +3,7 @@ export default function Projeler() {
     <section className="page-section">
       <h1>Projeler</h1>
       <p className="page-intro">
-        Proje detayları ve görseller bu alana eklenecek.
+        ...
       </p>
       <div className="project-placeholder-grid">
         <div className="project-placeholder" />

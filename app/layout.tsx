@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
+import PageNavigation from "./components/PageNavigation";
 
 const headingFont = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-heading" });
 const bodyFont = Manrope({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-body" });
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
           <main>{children}</main>
 
+          <PageNavigation />
           <div className="site-copyright">
             AFA Mimarlık © 2026
           </div>

@@ -521,3 +521,42 @@ main {
     grid-template-columns: 1fr;
   }
 }
+
+.page-arrow {
+  position: fixed;
+  top: 50%;
+  z-index: 50;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 70px;
+  font-family: Arial, sans-serif;
+  font-size: 34px;
+  font-weight: 200;
+  color: var(--muted);
+  opacity: .55;
+  transition: opacity .2s, transform .2s;
+  user-select: none;
+}
+
+.page-arrow:hover {
+  opacity: 1;
+}
+
+.page-arrow-left {
+  left: 12px;
+}
+
+.page-arrow-left:hover {
+  transform: translate(-3px, -50%);
+}
+
+.page-arrow-right {
+  right: 12px;
+}
+
+.page-arrow-right:hover {
+  transform: translate(3px, -50%);
+}
