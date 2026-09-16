@@ -800,3 +800,226 @@ main {
     transform: scale(1);
   }
 }
+
+/* SITE INTRO */
+
+.site-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--bg);
+
+  animation: introLeave .38s cubic-bezier(.76, 0, .24, 1) 3.05s forwards;
+}
+
+.intro-logo-wrap {
+  width: min(760px, 72vw);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.intro-signature {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Mask kalemi */
+
+.intro-mask-path {
+  fill: none;
+  stroke: white;
+
+  stroke-width: 105;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+/* 1 - Büyük A */
+
+.intro-mask-1 {
+  stroke-width: 115;
+  animation: drawIntro .55s cubic-bezier(.35, 0, .2, 1) .05s forwards;
+}
+
+/* 2 - Sağ imza */
+
+.intro-reveal-2a,
+.intro-reveal-2b {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.intro-reveal-2a {
+  transform-origin: center bottom;
+  transform: scaleY(0);
+  animation: revealBottomUp .6s cubic-bezier(.35, 0, .2, 1) .33s forwards;
+}
+
+.intro-reveal-2b {
+  transform-origin: center top;
+  transform: scaleY(0);
+  animation: revealTopDown .6s cubic-bezier(.35, 0, .2, 1) .50s forwards;
+}
+
+@keyframes revealBottomUp {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes revealTopDown {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.intro-reveal-3,
+.intro-reveal-4 {
+  transform-box: fill-box;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.intro-reveal-3 {
+  animation: revealLeftRight .6s cubic-bezier(.25, .6, .25, 1) .78s forwards;
+}
+
+.intro-reveal-4 {
+  animation: revealLeftRight .6s cubic-bezier(.25, .6, .25, 1) .8s forwards;
+}
+
+@keyframes revealLeftRight {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes drawIntro {
+  from {
+    stroke-dashoffset: 1;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+/* MİMARLIK */
+
+.intro-architecture {
+  position: relative;
+  display: flex;
+
+  margin-top: -50px;
+  transform: translateX(100px);
+
+  font-family: var(--font-body), Arial, sans-serif;
+
+  font-size: 28px;
+  font-weight: 500;
+
+  letter-spacing: .48em;
+
+  color: var(--text);
+}
+
+.intro-architecture span {
+  opacity: 0;
+
+  animation: typeIntroLetter .01s steps(1, end) forwards;
+}
+
+@keyframes typeIntroLetter {
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* Daktilo imleci */
+
+.intro-caret {
+  width: 1px;
+  height: 20px;
+
+  margin-left: 2px;
+
+  background: var(--text);
+
+  opacity: 0;
+
+  animation:
+    introCaretAppear .01s 1.55s forwards,
+    introCaretBlink .42s steps(1, end) 1.55s infinite;
+}
+
+@keyframes introCaretAppear {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes introCaretBlink {
+
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+
+/* INTRO BİTİŞ */
+
+@keyframes introLeave {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+
+@media(max-width:720px) {
+
+  .intro-logo-wrap {
+    width: 88vw;
+  }
+
+  .intro-architecture {
+    margin-top: -20px;
+    font-size: 15px;
+  }
+}

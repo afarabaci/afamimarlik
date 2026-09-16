@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
 import PageNavigation from "./components/PageNavigation";
+import SiteIntro from "./components/SiteIntro";
 
 const headingFont = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-heading" });
 const bodyFont = localFont({ src: "./fonts/FogtwoNo5.otf", variable: "--font-body", display: "swap" });
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="tr">
       <body className={`${headingFont.variable} ${bodyFont.variable}`}>
+        <SiteIntro/>
         <div className="site-shell">
           <header className="site-header">
             <Link href="/" className="brand">
