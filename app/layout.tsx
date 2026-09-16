@@ -18,15 +18,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="site-shell">
           <header className="site-header">
             <Link href="/" className="brand">
-              <img src="/afa-logo.svg" alt="AFA" className="header-logo" />
+              <img src="/afa-logo.svg" alt="AFA Mimarlık" className="header-logo" />
               <span className="header-logo-text">MİMARLIK</span>
             </Link>
-            <nav className="site-nav">
-              <Link href="/">Anasayfa</Link>
-              <Link href="/hakkimizda">Hakkımızda</Link>
-              <Link href="/projeler">Projeler</Link>
-              <Link href="/iletisim">İletişim</Link>
-            </nav>
+
+            <div className="header-right">
+              <nav className="site-nav">
+                <Link href="/">Anasayfa</Link>
+                <Link href="/hakkimizda">Hakkımızda</Link>
+                <Link href="/projeler">Projeler</Link>
+                <Link href="/iletisim">İletişim</Link>
+              </nav>
+
+              <div className="header-divider" />
+              <span className="lang-switch">TR/EN</span>
+            </div>
           </header>
           <main>{children}</main>
         </div>
