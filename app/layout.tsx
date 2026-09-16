@@ -9,8 +9,8 @@ const headingFont = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "50
 const bodyFont = localFont({ src: "./fonts/FogtwoNo5.otf", variable: "--font-body", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "AFA Mimarlık",
-  description: "AFA Mimarlık resmi web sitesi",
+  title: "Afa Mimarlık",
+  description: "Afa Mimarlık resmi web sitesi",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
