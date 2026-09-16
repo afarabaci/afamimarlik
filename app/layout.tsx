@@ -9,8 +9,25 @@ const headingFont = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "50
 const bodyFont = localFont({ src: "./fonts/FogtwoNo5.otf", variable: "--font-body", display: "swap" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.afamimarlik.com"),
   title: "Afa Mimarlık",
-  description: "Afa Mimarlık resmi web sitesi",
+  description: "Mimari tasarım, iç mekan ve proje geliştirme alanlarında çağdaş ve özgün çözümler.",
+  openGraph: {
+    title: "Afa Mimarlık",
+    description: "Mimari tasarım, iç mekan ve proje geliştirme.",
+    url: "https://www.afamimarlik.com",
+    siteName: "Afa Mimarlık",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Afa Mimarlık"
+      }
+    ],
+    locale: "tr_TR",
+    type: "website"
+  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -20,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="site-shell">
           <header className="site-header">
             <Link href="/" className="brand">
-              <img src="/afa-logo.svg" alt="AFA Mimarlık" className="header-logo" />
+              <img src="/afa-logo.svg" alt="Afa Mimarlık" className="header-logo" />
               <span className="header-logo-text">MİMARLIK</span>
             </Link>
 
@@ -43,7 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
           <PageNavigation />
           <div className="site-copyright">
-            AFA Mimarlık © 2026 | Tüm hakları saklıdır.
+            Afa Mimarlık © 2026 | Tüm hakları saklıdır.
           </div>
         </div>
       </body>

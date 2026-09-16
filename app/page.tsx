@@ -10,7 +10,7 @@ export default function Home(){
 
       <div className="hero-art">
         <div className="hero-backplate"/>
-        <Image src="/afa-hero-v2.jpg" alt="AFA Mimarlık" width={538} height={692} priority className="hero-image"/>
+        <Image src="/afa-hero-v2.jpg" alt="Afa Mimarlık" width={538} height={692} priority className="hero-image"/>
       </div>
     </section>
   );

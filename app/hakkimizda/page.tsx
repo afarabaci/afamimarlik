@@ -11,7 +11,7 @@ export default function Hakkimizda(){
         <div className="about-copy">
           <div className="content-block">
             <p>
-              AFA Mimarlık; mimari tasarım, uygulama, iç mekan ve proje geliştirme
+              Afa Mimarlık; mimari tasarım, uygulama, iç mekan ve proje geliştirme
               süreçlerinde işlevsel ve estetik çözümler üretmek amacıyla Mimar Ahmet Faruk Arabacı tarafından 2026 yılında kuruldu.
             </p>
 
@@ -22,7 +22,7 @@ export default function Hakkimizda(){
               eğitimine devam etmektedir. Çeşitli firmalarda mimari proje yürütücülüğü yaptı.
             </p>
 
-            <p>AFA Mimarlık firmasında çalışmalarına devam etmektedir.</p>
+            <p>Afa Mimarlık firmasında çalışmalarına devam etmektedir.</p>
           </div>
         </div>
 
@@ -30,7 +30,7 @@ export default function Hakkimizda(){
           <div className="about-image-frame"/>
           <Image
             src="/about.png"
-            alt="AFA Mimarlık"
+            alt="Afa Mimarlık"
             width={310}
             height={390}
             className="about-image"
