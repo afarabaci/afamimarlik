@@ -4,7 +4,6 @@ export default function Home(){
   return(
     <section className="home-hero">
       <div className="hero-copy about-page">
-        <h1>AFA Mimarlık</h1>
         <div className="hero-line"/>
         <p>Mimari tasarım, iç mekan ve proje geliştirme alanlarında sade, çağdaş ve güçlü çözümler üreten bir mimarlık ofisi.</p>
       </div>
