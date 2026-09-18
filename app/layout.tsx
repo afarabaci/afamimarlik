@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "Afa Mimarlık",
     images: [
       {
-        url: "https://www.afamimarlik.com/og-image.jpg",
+        url: "https://www.afamimarlik.com/og-image.png",
         width: 1200,
         height: 630,
         alt: "Afa Mimarlık"
