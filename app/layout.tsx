@@ -11,16 +11,26 @@ const bodyFont = localFont({ src: "./fonts/FogtwoNo5.otf", variable: "--font-bod
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.afamimarlik.com"),
-  title: "Afa Mimarlık",
-  description: "Mimari tasarım, iç mekan ve proje geliştirme alanlarında çağdaş ve özgün çözümler.",
+
+  title: {
+    default: "Afa Mimarlık",
+    template: "%s | Afa Mimarlık"
+  },
+
+  description:
+    "Afa Mimarlık; mimari tasarım, iç mekan, uygulama ve proje geliştirme alanlarında çağdaş ve işlevsel çözümler sunan mimarlık ofisidir.",
+
+  applicationName: "Afa Mimarlık",
+
   openGraph: {
     title: "Afa Mimarlık",
-    description: "Mimari tasarım, iç mekan ve proje geliştirme.",
+    description:
+      "Mimari tasarım, iç mekan, uygulama ve proje geliştirme.",
     url: "https://www.afamimarlik.com",
     siteName: "Afa Mimarlık",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "https://www.afamimarlik.com/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Afa Mimarlık"
@@ -34,8 +44,20 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="tr">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "AFA Mimarlık",
+            alternateName: "AFA",
+            url: "https://www.afamimarlik.com/"
+          })
+        }}
+      />
       <body className={`${headingFont.variable} ${bodyFont.variable}`}>
-        <SiteIntro/>
+        <SiteIntro />
         <div className="site-shell">
           <header className="site-header">
             <Link href="/" className="brand">
