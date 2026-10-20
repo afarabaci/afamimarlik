@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 const pages=["/","/hakkimizda","/projeler","/iletisim"];
 
-export default function PageNavigation(){
+export default function PageNavigation({previousLabel,nextLabel}:{previousLabel:string;nextLabel:string}){
   const pathname=usePathname();
   const index=pages.indexOf(pathname);
   const prev=index>0?pages[index-1]:null;
@@ -13,8 +13,8 @@ export default function PageNavigation(){
 
   return(
     <>
-      {prev&&<Link href={prev} className="page-arrow page-arrow-left" aria-label="Önceki sayfa">‹</Link>}
-      {next&&<Link href={next} className="page-arrow page-arrow-right" aria-label="Sonraki sayfa">›</Link>}
+      {prev&&<Link href={prev} className="page-arrow page-arrow-left" aria-label={previousLabel}>‹</Link>}
+      {next&&<Link href={next} className="page-arrow page-arrow-right" aria-label={nextLabel}>›</Link>}
     </>
   );
 }

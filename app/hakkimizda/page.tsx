@@ -1,28 +1,23 @@
 import Image from "next/image";
+import { getMessages } from "../i18n/server";
 
-export default function Hakkimizda(){
+export async function generateMetadata() {
+  const t = await getMessages();
+  return { title: t.nav.about };
+}
+
+export default async function Hakkimizda(){
+  const t = await getMessages();
   return(
     <section className="page-section about-page">
       <div className="page-heading">
-        <h1>Hakkımızda</h1>
+        <h1>{t.nav.about}</h1>
       </div>
 
       <div className="about-layout">
         <div className="about-copy">
           <div className="content-block">
-            <p>
-              Afa Mimarlık; mimari tasarım, uygulama, iç mekan ve proje geliştirme
-              süreçlerinde işlevsel ve estetik çözümler üretmek amacıyla Mimar Ahmet Faruk Arabacı tarafından 2026 yılında kuruldu.
-            </p>
-
-            <p>
-              Ahmet Faruk Arabacı, 2020 yılında Karabük Üniversitesi Safranbolu Mimarlık
-              Fakültesinden, 2021 yılında Atatürk Üniversitesi İş Sağlığı Ve Güvenliği Bölümünden
-              mezun oldu. Halen Kütahya Dumlupınar Üniversitesi Arkeoloji Bölümünde yüksek lisans
-              eğitimine devam etmektedir. Çeşitli firmalarda mimari proje yürütücülüğü yaptı.
-            </p>
-
-            <p>Afa Mimarlık firmasında çalışmalarına devam etmektedir.</p>
+            {t.about.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
           </div>
         </div>
 

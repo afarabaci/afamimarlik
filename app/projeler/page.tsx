@@ -1,12 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import {projects} from "../data/projects";
+import { getLocale, getMessages } from "../i18n/server";
 
-export default function Projeler(){
+export async function generateMetadata() {
+  const t = await getMessages();
+  return { title: t.nav.projects };
+}
+
+export default async function Projeler(){
+  const t = await getMessages();
+  const locale = await getLocale();
   return(
     <section className="page-section projects-page">
       <div className="page-heading">
-        <h1>Projeler</h1>
+        <h1>{t.nav.projects}</h1>
       </div>
 
       <div className="projects-grid">
@@ -23,7 +31,7 @@ export default function Projeler(){
             <div className="project-card-overlay"/>
 
             <div className="project-card-info">
-              <span>{project.category}</span>
+              <span>{project.category[locale]}</span>
               <h2>{project.title}</h2>
               <p>{project.location} · {project.year}</p>
             </div>

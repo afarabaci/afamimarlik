@@ -1,7 +1,7 @@
 export type Project = {
     slug: string;
     title: string;
-    category: string;
+    category: { tr: string; en: string };
     location: string;
     year: string;
     description: string;
@@ -13,7 +13,7 @@ export const projects: Project[] = [
     {
         slug: "proje1",
         title: "Twin Houses",
-        category: "Mimari Tasarım",
+        category: { tr: "Mimari Tasarım", en: "Architectural Design" },
         location: "Erdemli/Mersin",
         year: "2023",
         description: "",

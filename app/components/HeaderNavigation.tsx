@@ -3,15 +3,20 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRef, useState } from "react";
+import LanguageSwitcher from "./LanguageSwitcher";
+import type { Locale, messages } from "../i18n/messages";
 
-const links = [
-  { href: "/", label: "Anasayfa" },
-  { href: "/hakkimizda", label: "Hakkımızda" },
-  { href: "/projeler", label: "Projeler" },
-  { href: "/iletisim", label: "İletişim" },
-];
-
-export default function HeaderNavigation() {
+export default function HeaderNavigation({ locale, nav, languageLabel }: {
+  locale: Locale;
+  nav: typeof messages.tr.nav;
+  languageLabel: string;
+}) {
+  const links = [
+    { href: "/", label: nav.home },
+    { href: "/hakkimizda", label: nav.about },
+    { href: "/projeler", label: nav.projects },
+    { href: "/iletisim", label: nav.contact },
+  ];
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const toggle = useRef<HTMLButtonElement>(null);
@@ -32,9 +37,9 @@ export default function HeaderNavigation() {
         onClick={() => setOpen(!open)}
       >
         <span aria-hidden="true">{open ? "×" : "☰"}</span>
-        {open ? "Kapat" : "Menü"}
+        {open ? nav.close : nav.menu}
       </button>
-      <nav id="site-navigation" className={`site-nav${open ? " is-open" : ""}`} aria-label="Ana menü">
+      <nav id="site-navigation" className={`site-nav${open ? " is-open" : ""}`} aria-label={nav.label}>
         {links.map(({ href, label }) => (
           <Link key={href} href={href}
             aria-current={(pathname === href || (href !== "/" && pathname.startsWith(`${href}/`))) ? "page" : undefined}
@@ -44,7 +49,7 @@ export default function HeaderNavigation() {
         ))}
       </nav>
       <div className="header-divider" />
-      <span className="lang-switch">TR/EN</span>
+      <LanguageSwitcher locale={locale} label={languageLabel} />
     </div>
   );
 }

@@ -1,50 +1,56 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import localFont from "next/font/local";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import PageNavigation from "./components/PageNavigation";
 import SiteIntro from "./components/SiteIntro";
 import HeaderNavigation from "./components/HeaderNavigation";
+import { getLocale, getMessages } from "./i18n/server";
 
 const headingFont = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-heading" });
 const bodyFont = localFont({ src: "./fonts/FogtwoNo5.otf", variable: "--font-body", display: "swap" });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://www.afamimarlik.com"),
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getMessages();
+  return {
+    metadataBase: new URL("https://www.afamimarlik.com"),
 
-  title: {
-    default: "Afa Mimarlık",
-    template: "%s | Afa Mimarlık"
-  },
+    title: {
+      default: `${t.nav.home} | Afa Mimarlık`,
+      template: "%s | Afa Mimarlık"
+    },
 
-  description:
-    "Afa Mimarlık; mimari tasarım, iç mekan, uygulama ve proje geliştirme alanlarında çağdaş ve işlevsel çözümler sunan mimarlık ofisidir.",
-
-  applicationName: "Afa Mimarlık",
-
-  openGraph: {
-    title: "Afa Mimarlık",
     description:
-      "Mimari tasarım, iç mekan, uygulama ve proje geliştirme.",
-    url: "https://www.afamimarlik.com",
-    siteName: "Afa Mimarlık",
-    images: [
-      {
-        url: "https://www.afamimarlik.com/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Afa Mimarlık"
-      }
-    ],
-    locale: "tr_TR",
-    type: "website"
-  }
-};
+      t.metadata.description,
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+    applicationName: "Afa Mimarlık",
+
+    openGraph: {
+      title: "Afa Mimarlık",
+      description:
+        t.metadata.socialDescription,
+      url: "https://www.afamimarlik.com",
+      siteName: "Afa Mimarlık",
+      images: [
+        {
+          url: "https://www.afamimarlik.com/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: "Afa Mimarlık"
+        }
+      ],
+      locale: t.metadata.locale,
+      type: "website"
+    }
+  };
+}
+
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const locale = await getLocale();
+  const t = await getMessages();
   return (
-    <html lang="tr">
+    <html lang={locale}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -53,6 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             "@type": "WebSite",
             name: "AFA Mimarlık",
             alternateName: "AFA",
+            inLanguage: locale,
             url: "https://www.afamimarlik.com/"
           })
         }}
@@ -66,16 +73,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <span className="header-logo-text">MİMARLIK</span>
             </Link>
 
-            <HeaderNavigation />
+            <HeaderNavigation locale={locale} nav={t.nav} languageLabel={t.language} />
           </header>
 
-          <div className="global-eyebrow">PROJE · TASARIM · UYGULAMA</div>
+          <div className="global-eyebrow">{t.eyebrow}</div>
 
           <main>{children}</main>
 
-          <PageNavigation />
+          <PageNavigation previousLabel={t.previous} nextLabel={t.next} />
           <div className="site-copyright">
-            Afa Mimarlık © 2026 | Tüm hakları saklıdır.
+            Afa Mimarlık © 2026 | {t.copyright}
           </div>
         </div>
       </body>

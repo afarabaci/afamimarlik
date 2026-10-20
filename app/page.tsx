@@ -1,11 +1,13 @@
 import Image from "next/image";
+import { getMessages } from "./i18n/server";
 
-export default function Home(){
+export default async function Home(){
+  const t = await getMessages();
   return(
     <section className="home-hero">
       <div className="hero-copy about-page">
         <div className="hero-line"/>
-        <p>Mimari tasarım, iç mekan ve proje geliştirme alanlarında sade, çağdaş ve güçlü çözümler üreten bir mimarlık ofisi.</p>
+        <p>{t.home}</p>
       </div>
 
       <div className="hero-art">
