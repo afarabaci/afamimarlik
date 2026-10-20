@@ -72,6 +72,16 @@ a {
   gap: 18px;
 }
 
+.menu-toggle {
+  display: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--muted);
+  outline-offset: 4px;
+}
+
 .site-nav {
   display: flex;
   align-items: center;
@@ -558,6 +568,7 @@ main {
     width: 90%;
     height: auto;
     margin: 10px auto 40px;
+    transform: none;
   }
 
   .about-image {
@@ -1021,5 +1032,215 @@ main {
   .intro-architecture {
     margin-top: -20px;
     font-size: 15px;
+  }
+}
+
+/* Touch layouts use document scrolling so short screens never clip content. */
+@media(max-width:1050px) {
+  html,
+  body {
+    height: auto;
+    min-height: 100%;
+    overflow: auto;
+  }
+
+  .site-shell {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 100svh;
+    overflow: visible;
+  }
+
+  main {
+    flex: 1;
+    height: auto;
+  }
+
+  .page-enter {
+    height: auto;
+  }
+
+  .site-header {
+    position: relative;
+    z-index: 100;
+  }
+
+  .header-right {
+    gap: 14px;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 44px;
+    padding: 8px 12px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--text);
+    font: inherit;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    width: 18px;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+  }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: calc(100% - 1px);
+    left: 0;
+    right: 0;
+    padding: 12px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    box-shadow: 0 12px 22px rgb(31 29 26 / 8%);
+  }
+
+  .site-nav.is-open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .site-nav a {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 10px 14px;
+    font-size: 18px;
+  }
+
+  .site-nav a[aria-current="page"] {
+    color: var(--text);
+    background: var(--bg-soft);
+  }
+
+  .header-divider,
+  .page-arrow {
+    display: none;
+  }
+
+  .home-hero,
+  .page-section,
+  .project-detail {
+    height: auto;
+    overflow: visible;
+  }
+
+  .home-hero {
+    padding-bottom: 48px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .hero-art {
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  .hero-image {
+    max-width: 100%;
+  }
+
+  .about-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 300px);
+    gap: 30px;
+  }
+
+  .about-visual {
+    transform: none;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-card {
+    min-width: 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    overflow-wrap: anywhere;
+  }
+
+  .contact-card:last-child {
+    border-bottom: 0;
+  }
+
+  .site-copyright {
+    position: static;
+    width: 90%;
+    margin: 0 auto;
+    padding: 16px 0 max(20px, env(safe-area-inset-bottom));
+    line-height: 1.6;
+  }
+
+  .project-detail-meta {
+    flex-wrap: wrap;
+    gap: 10px 24px;
+  }
+
+  .project-detail h1 {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media(max-width:720px) {
+  .global-eyebrow {
+    font-size: 7px;
+    letter-spacing: .3em;
+  }
+
+  .home-hero {
+    min-height: auto;
+  }
+
+  .hero-backplate {
+    left: -12px;
+  }
+
+  .page-heading {
+    height: auto;
+    margin-bottom: 28px;
+  }
+
+  .page-heading h1,
+  .project-detail h1 {
+    font-size: clamp(36px, 10vw, 48px);
+  }
+
+  .content-block p {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .about-image-frame {
+    left: 10px;
+    top: 10px;
+  }
+
+  .project-card-info {
+    max-width: 100%;
+    bottom: 12px;
+    padding: 12px 16px;
+  }
+
+  .project-card-info h2 {
+    font-size: 22px;
+  }
+
+  .project-detail-header {
+    gap: 16px;
+  }
+
+  .intro-architecture {
+    transform: translateX(12vw);
+    font-size: clamp(11px, 3.6vw, 15px);
   }
 }

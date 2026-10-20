@@ -5,6 +5,7 @@ import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
 import PageNavigation from "./components/PageNavigation";
 import SiteIntro from "./components/SiteIntro";
+import HeaderNavigation from "./components/HeaderNavigation";
 
 const headingFont = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-heading" });
 const bodyFont = localFont({ src: "./fonts/FogtwoNo5.otf", variable: "--font-body", display: "swap" });
@@ -65,17 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <span className="header-logo-text">MİMARLIK</span>
             </Link>
 
-            <div className="header-right">
-              <nav className="site-nav">
-                <Link href="/">Anasayfa</Link>
-                <Link href="/hakkimizda">Hakkımızda</Link>
-                <Link href="/projeler">Projeler</Link>
-                <Link href="/iletisim">İletişim</Link>
-              </nav>
-
-              <div className="header-divider" />
-              <span className="lang-switch">TR/EN</span>
-            </div>
+            <HeaderNavigation />
           </header>
 
           <div className="global-eyebrow">PROJE · TASARIM · UYGULAMA</div>
